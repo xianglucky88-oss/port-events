@@ -1,0 +1,5 @@
+[
+  {"source":"carrier-api","vessel":"Ocean Star","voyage":"OS202611A","container":"CONT001","port":"CNSHA","event_code":"ATA","event_time":"2026-11-10T08:00:00+08:00","status":"actual","source_ref":"carrier-event-1"},
+  {"source":"terminal-api","vessel":"ocean star","voyage":"OS202611A","container":"CONT001","port":"cnsha","event_code":"ATA","event_time":"2026-11-10T00:00:00Z","status":"estimated","source_ref":"terminal-event-7"},
+  {"source":"carrier-api","vessel":"Ocean Star","voyage":"OS202611A","container":"CONT001","port":"CNSHA","event_code":"DEPART","event_time":"2026-11-12T18:30:00+08:00","status":"estimated","source_ref":"carrier-event-2"}
+]

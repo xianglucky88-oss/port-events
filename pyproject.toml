@@ -1,0 +1,12 @@
+[project]
+name = "port-events"
+version = "0.1.0"
+description = "Port schedule and container milestone collection, correlation and event storage"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<9"]
+
+[project.scripts]
+port-events = "port_events.cli:main"
