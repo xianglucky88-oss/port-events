@@ -30,5 +30,15 @@ class ShipmentEvent:
     observed_at: str
 
 
+@dataclass(frozen=True)
+class BatchOutcome:
+    """单个批次本轮的执行结果：committed / failed / skipped。"""
+    source_id: str
+    batch_id: str
+    status: str
+    event_count: int = 0
+    error: str | None = None
+
+
 def observed_now() -> str:
     return datetime.now(timezone.utc).isoformat()
