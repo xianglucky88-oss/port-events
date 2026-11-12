@@ -3,6 +3,10 @@ import sqlite3
 from pathlib import Path
 from .models import ShipmentEvent
 
+# Interpretations are not persisted: the table shape is unchanged, so existing
+# rows and databases keep working and no migration is introduced.
+_INSERT = "INSERT OR REPLACE INTO shipment_events VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+
 
 class EventStore:
     def __init__(self, database: str | Path) -> None:
@@ -16,7 +20,7 @@ class EventStore:
         self.connection.commit()
 
     def upsert_many(self, events: list[ShipmentEvent]) -> None:
-        self.connection.executemany("INSERT OR REPLACE INTO shipment_events VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [(e.event_key, e.vessel, e.voyage, e.container, e.port, e.event_type, e.event_time_utc, e.status, ",".join(e.sources), e.observed_at) for e in events])
+        self.connection.executemany(_INSERT, [(e.event_key, e.vessel, e.voyage, e.container, e.port, e.event_type, e.event_time_utc, e.status, ",".join(e.sources), e.observed_at) for e in events])
         self.connection.commit()
 
     def close(self) -> None:
