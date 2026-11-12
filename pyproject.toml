@@ -10,3 +10,4 @@ test = ["pytest>=8.3,<9"]
 
 [project.scripts]
 port-events = "port_events.cli:main"
+port-events-replay = "port_events.replay:main"
