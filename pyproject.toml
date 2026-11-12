@@ -10,3 +10,4 @@ test = ["pytest>=8.3,<9"]
 
 [project.scripts]
 port-events = "port_events.cli:main"
+reliable-delivery = "port_events.reliable_delivery.cli:main"
